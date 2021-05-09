@@ -1,0 +1,63 @@
+<div class="container main-div">
+    <div>
+        <h3>The Shoppies</h3>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body input-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <b>Movie Title:</b> 
+                </div>
+                <div class="col-md-12 search-div" >
+                    <input type="text" class="form-control" placeholder="Enter movie name" [(ngModel)]="searchMovieName" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="searchMovie()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <b>Results</b> for "{{ searchMovieName }}" :
+                    <div *ngIf="movieList.length === 0" class="text-center">
+                        No Movies available!
+                    </div>
+                    <div *ngIf="movieList.length > 0" class="list-div">
+                        <ul class="list-group list-group-flush int-list">
+                            <li class="list-group-item" *ngFor="let m of movieList; let i = index">
+                                {{ m.Title }} <span>
+                                    <button class="btn btn-dark"
+                                        (click)="addNomination(m.imdbID, m.Title)"
+                                        [disabled]="movieIdList.includes(m.imdbID)">Nominate</button>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <b>Nominations :</b> 
+                    <div *ngIf="movieList.length === 0" class="text-center">
+                        No Nominations available!
+                    </div>
+                    <div *ngIf="nominationList.length > 0" class="list-div">
+                        <ul class="list-group list-group-flush int-list">
+                            <li class="list-group-item" *ngFor="let m of nominationList; let i = index">
+                                {{ m.movie_title }} <span><button class="btn btn-dark" (click)="removeNomination(m.id)">Remove</button></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

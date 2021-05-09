@@ -1,0 +1,24 @@
+.main-div {
+    padding: 60px;
+    max-height: 700px;
+    margin-top: 50px;
+    border-radius: 10px;
+    background: aliceblue;
+}
+
+.search-div{
+    display: flex;
+}
+
+.input-group{
+    display: block;
+}
+
+button.btn-dark {
+    float: right;
+}
+
+.list-div{
+    max-height: 300px;
+    overflow: scroll;
+}
