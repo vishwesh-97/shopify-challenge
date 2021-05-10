@@ -27,7 +27,7 @@ export class SearchMovieComponent implements OnInit {
     searchMovie() {
         if (this.searchMovieName) {
             console.log(this.searchMovieName);
-            this.http.get(`http://www.omdbapi.com/?s=${this.searchMovieName}&apikey=302dcd3c`).subscribe(res => {
+            this.http.get(`https://www.omdbapi.com/?s=${this.searchMovieName}&apikey=302dcd3c`).subscribe(res => {
                 console.log(res);
                 this.movieList = res.Search;
             }, err => {
